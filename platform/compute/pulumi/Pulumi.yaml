@@ -1,0 +1,6 @@
+name: compute
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: compute - AzureEnvironment - DevSecNinja

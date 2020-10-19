@@ -1,0 +1,14 @@
+{
+	"name": "AzureEnvironment - DevSecNinja",
+	"settings": {},
+	"extensions": [
+		"ms-vscode.azure-account",
+		"msazurermtools.azurerm-vscode-tools",
+		"samcogan.arm-snippets",
+		"DavidAnson.vscode-markdownlint",
+		"eamodio.gitlens",
+		"ms-vscode.PowerShell",
+		"ms-python.python"
+	],
+	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh"
+}

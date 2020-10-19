@@ -1,0 +1,35 @@
+name: Pulumi - Compute
+on:
+  pull_request:
+    paths:
+      - platform/compute/pulumi/**
+      - platform/generic/json/compute*.json
+      - .github/workflows/compute*.yml
+
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: microsoft/variable-substitution@v1
+        with:
+          files: 'platform/generic/json/*.json'
+        env:
+          environments.develop.subscriptions.1.id: ${{ secrets.DEVTEST_SUB_ID }}
+          environments.develop.subscriptions.1.tenantId: ${{ secrets.ARM_TENANT_ID }}
+          environments.production.subscriptions.1.id: ${{ secrets.PROD_SUB_ID }}
+          environments.production.subscriptions.1.tenantId: ${{ secrets.ARM_TENANT_ID }}
+      - uses: docker://pulumi/actions
+        with:
+          args: preview --emoji
+        env:
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          PULUMI_CI: pr
+          PULUMI_ROOT: platform/compute/pulumi
