@@ -1,0 +1,18 @@
+{
+	"terminal.integrated.shell.linux": "/bin/bash",
+	"editor.formatOnType": true,
+	"files.trimTrailingWhitespace": true,
+	"files.autoSave": "afterDelay",
+	"files.autoSaveDelay": 2000,
+	"editor.detectIndentation": true,
+	"editor.insertSpaces": false,
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"powershell.scriptAnalysis.enable": true,
+	"powershell.codeFormatting.openBraceOnSameLine": true,
+	"powershell.scriptAnalysis.settingsPath": "./PSScriptAnalyzerSettings.psd1",
+	"python.linting.pylintEnabled": false,
+	"python.linting.flake8Enabled": true,
+	"python.linting.enabled": true,
+	"python.formatting.provider": "black"
+}

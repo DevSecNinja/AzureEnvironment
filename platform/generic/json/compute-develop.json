@@ -1,0 +1,49 @@
+{
+	"virtualMachines": {
+		"windowsServer": {
+			"settings": {
+				"osProfile": {
+					"adminUsername": "azAdmin",
+					"windowsConfiguration": {
+						"enableAutomaticUpdates": true,
+						"patchSettings": {
+							"patchMode": "AutomaticByPlatform"
+						},
+						"provisionVMAgent": true
+					}
+				},
+				"diagnosticsProfile": {
+					"bootDiagnostics": {
+						"enabled": true
+					}
+				},
+				"storageProfile": {
+					"imageReference": {
+						"offer": "WindowsServer",
+						"publisher": "MicrosoftWindowsServer",
+						"sku": "2016-Datacenter",
+						"version": "latest"
+					},
+					"osDisk": {
+						"caching": "ReadWrite",
+						"createOption": "FromImage",
+						"managedDisk": {
+							"storageAccountType": "Standard_LRS"
+						}
+					}
+				}
+			},
+			"resources": [
+				{
+					"name": "DC01",
+					"size": "Standard_D1_v2"
+				}
+			]
+		}
+	},
+	"resourceGroups": {
+		"platform": {
+			"name": "devsecninjacomputedev-rg"
+		}
+	}
+}

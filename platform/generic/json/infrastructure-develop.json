@@ -1,0 +1,39 @@
+{
+	"storageAccounts": {
+		"settings": {
+			"accountReplicationType": "Standard_LRS",
+			"kind": "StorageV2"
+		},
+		"platform": {
+			"name": "devsecninjaplatformdev",
+			"containers": {
+				"name": "data",
+				"access_level": "private"
+			}
+		}
+	},
+	"virtualNetworks": {
+		"settings": {},
+		"resources": [
+			{
+				"name": "devsecninjaplatformdev-vnet",
+				"addressSpace": {
+					"addressPrefixes": [
+						"10.100.0.0/16"
+					]
+				},
+				"subnets": [
+					{
+						"addressPrefix": "10.100.0.0/24",
+						"name": "default"
+					}
+				]
+			}
+		]
+	},
+	"resourceGroups": {
+		"platform": {
+			"name": "devsecninjaplatformdev-rg"
+		}
+	}
+}

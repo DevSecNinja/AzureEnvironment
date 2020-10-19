@@ -1,0 +1,12 @@
+config:
+  azure:environment: public
+  azure:location: WestEurope
+  infrastructure:environments:
+    develop:
+      subscriptions:
+        "1":
+          id:
+            secure: AAABANHlME1pfgPRpHHiVrP4bqPupWQ5vFUuDT3kamRpDLKENeOmOljYcMi7VmnPvA1KZQG2hEa8OR3pch58di1U2OU=
+          tenantId:
+            secure: AAABADsjipaCBNT4bzHdz8jFRiormy3J1G7s1Xt0OiEGZ3PPNomM3wPHc5WgriLL3AgGGQDAYC9dewe0/QgKHuS5tJ4=
+  pulumi:template: azure-nextgen-python
