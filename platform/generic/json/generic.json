@@ -15,9 +15,9 @@
 			"shortName": "dev",
 			"subscriptions": {
 				"1": {
-					"id": "DEVTEST_SUB_ID",
+					"id": "ToBeObtainedAsPulumiSecret",
 					"name": "Development & Test",
-					"tenantId": "ARM_TENANT_ID"
+					"tenantId": "ToBeObtainedAsPulumiSecret"
 				}
 			}
 		},
@@ -26,9 +26,9 @@
 			"shortName": "prod",
 			"subscriptions": {
 				"1": {
-					"id": "PROD_SUB_ID",
+					"id": "ToBeObtainedAsPulumiSecret",
 					"name": "Production",
-					"tenantId": "ARM_TENANT_ID"
+					"tenantId": "ToBeObtainedAsPulumiSecret"
 				}
 			}
 		}
