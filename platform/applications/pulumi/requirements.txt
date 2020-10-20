@@ -1,0 +1,9 @@
+###### Requirements without Version Specifiers ######`
+setuptools
+flake8
+black
+
+###### Requirements with Version Specifiers ######`
+pulumi>=2.0.0,<3.0.0
+pulumi-azure>=3.0.0,<4.0.0
+pulumi-azure-nextgen>=0.2.0

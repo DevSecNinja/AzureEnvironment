@@ -1,0 +1,27 @@
+{
+	"appServices": {
+		"namingConventionApp": {
+			"name": "namingconventionappprod",
+			"serviceName": "namingconvention",
+			"properties": {
+				"activeDeploymentName": "deployment1",
+				"fqdn": "naming.devsecninja.com",
+				"httpsOnly": false,
+				"persistentDisk": {
+					"mountPath": "persistentDisk",
+					"sizeInGB": 2
+				},
+				"public": true,
+				"temporaryDisk": {
+					"mountPath": "temporaryDisk",
+					"sizeInGB": 2
+				}
+			}
+		}
+	},
+	"resourceGroups": {
+		"platform": {
+			"name": "devsecninjaapplicationsprod-rg"
+		}
+	}
+}
