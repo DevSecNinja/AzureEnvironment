@@ -27,7 +27,7 @@
 		}
 	],
 	"resourceGroups": {
-		"platform": {
+		"applications": {
 			"name": "devsecninjaapplicationsprod-rg"
 		}
 	}
