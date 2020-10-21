@@ -27,9 +27,6 @@
 	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
 	"build": {
 		"dockerfile": "Dockerfile",
-		"context": "..",
-		"args": {
-			"VARIANT": "3"
-		}
+		"context": ".."
 	}
 }
