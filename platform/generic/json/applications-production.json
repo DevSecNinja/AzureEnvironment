@@ -7,11 +7,11 @@
 			"sourceControlName": "namingconventionscprod",
 			"reserved": true,
 			"svcSku": {
-				"capacity": 0,
-				"family": "F",
-				"name": "F1",
-				"size": "F1",
-				"tier": "Free"
+				"capacity": 1,
+				"family": "B",
+				"name": "B1",
+				"size": "B1",
+				"tier": "Basic"
 			},
 			"appConfig": {
 				"pythonVersion": "3.8.0",
