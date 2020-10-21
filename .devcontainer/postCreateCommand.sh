@@ -12,6 +12,3 @@ python -m venv ./platform/infrastructure/pulumi/venv
 python -m venv ./platform/applications/pulumi/venv
 ./platform/applications/pulumi/venv/bin/python -m pip install --upgrade pip setuptools wheel
 ./platform/applications/pulumi/venv/bin/python -m pip install -r ./platform/applications/pulumi/requirements.txt
-
-# Finalize
-uname -a
