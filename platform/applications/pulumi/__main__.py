@@ -67,7 +67,6 @@ for appService in env_params_data["resources"]:
         resource_group_name=applicationsResourceGroup.name,
         server_farm_id=appServicePlanResource.id,
         site_config=appService["appConfig"],
-        source_control_config="bla",
     )
 
     # appSourceControl = web.WebAppSourceControl(
