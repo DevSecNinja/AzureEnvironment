@@ -15,5 +15,6 @@
 	"python.linting.flake8Enabled": true,
 	"python.linting.enabled": true,
 	"python.formatting.provider": "black",
-	"python.terminal.activateEnvironment": false
+	"python.terminal.activateEnvironment": false,
+	"python.venvPath": "${workspaceFolder}/platform/compute/pulumi:${workspaceFolder}/platform/infrastructure/pulumi:${workspaceFolder}/platform/applications/pulumi"
 }
