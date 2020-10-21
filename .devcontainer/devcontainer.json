@@ -25,11 +25,5 @@
 		"ms-python.python"
 	],
 	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": "..",
-		"args": {
-			"VARIANT": "3"
-		}
-	}
+	"image": "pulumi/pulumi:latest"
 }
