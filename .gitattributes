@@ -1,0 +1,4 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+# Converts CRLF to LF line endings for all .sh scripts, as Linux uses LF line endings by default
+*.sh text eol=lf

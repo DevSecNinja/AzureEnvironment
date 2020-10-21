@@ -24,6 +24,7 @@
 		"ms-vscode.PowerShell",
 		"ms-python.python"
 	],
+	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
