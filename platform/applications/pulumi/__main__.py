@@ -1,6 +1,6 @@
 import pulumi
 from pulumi_azure_nextgen.resources import latest as resources
-from pulumi_azure_nextgen.appplatform import latest as appplatform
+from pulumi_azure_nextgen.web import latest as web
 
 import json
 from pprint import pprint
@@ -47,17 +47,38 @@ applicationsResourceGroup = resources.ResourceGroup(
 )
 
 # Create a network interface and Virtual Machine
-for appService in env_params_data["appServices"]:
-    print("Creating app service", appService["name"])
+for appService in env_params_data["resources"]:
+    print("Creating or updating app service", appService["name"])
 
-    appResource = appplatform.App(
-        appService["name"],
-        app_name=appService["name"],
+    appServicePlanResource = web.AppServicePlan(
+        appService["servicePlanName"],
+        name=appService["servicePlanName"],
+        kind=appService["kind"],
+        reserved=appService["reserved"],
         location=applicationsResourceGroup.location,
         resource_group_name=applicationsResourceGroup.name,
-        properties=appService["properties"],
-        service_name=appService["serviceName"],
+        sku=appService["svcSku"],
     )
+
+    appResource = web.WebApp(
+        appService["name"],
+        name=appService["name"],
+        location=applicationsResourceGroup.location,
+        resource_group_name=applicationsResourceGroup.name,
+        server_farm_id=appServicePlanResource.id,
+        site_config=appService["appConfig"],
+        source_control_config="bla"
+    )
+
+    # appSourceControl = web.WebAppSourceControl(
+    #     appService["sourceControlName"],
+    #     name=appResource.name,
+    #     resource_group_name=applicationsResourceGroup.name,
+    #     branch=appService["sourceControlConfig"]["branch"],
+    #     is_git_hub_action=appService["sourceControlConfig"]["isGitHubAction"],
+    #     repo_url=appService["sourceControlConfig"]["repoUrl"],
+    #     is_mercurial=appService["sourceControlConfig"]["isMercurial"],
+    # )
 
 
 # Export relevant data to Pulumi output

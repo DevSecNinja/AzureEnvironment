@@ -1,24 +1,31 @@
 {
-	"appServices": {
-		"namingConventionApp": {
+	"resources": [
+		{
 			"name": "namingconventionappprod",
-			"serviceName": "namingconvention",
-			"properties": {
-				"activeDeploymentName": "deployment1",
-				"fqdn": "naming.devsecninja.com",
-				"httpsOnly": false,
-				"persistentDisk": {
-					"mountPath": "persistentDisk",
-					"sizeInGB": 2
-				},
-				"public": true,
-				"temporaryDisk": {
-					"mountPath": "temporaryDisk",
-					"sizeInGB": 2
-				}
+			"servicePlanName": "namingconventionsvcprod",
+			"kind": "linux",
+			"sourceControlName": "namingconventionscprod",
+			"reserved": true,
+			"svcSku": {
+				"capacity": 0,
+				"family": "F",
+				"name": "F1",
+				"size": "F1",
+				"tier": "Free"
+			},
+			"appConfig": {
+				"pythonVersion": "3.8.0",
+				"app_command_line": "gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app",
+				"linuxFxVersion": "PYTHON|3.8"
+			},
+			"sourceControlConfig": {
+				"branch": "main",
+				"isGitHubAction": false,
+				"repoUrl": "https://github.com/DevSecNinja/NamingConventionApi",
+				"isMercurial": false
 			}
 		}
-	},
+	],
 	"resourceGroups": {
 		"platform": {
 			"name": "devsecninjaapplicationsprod-rg"

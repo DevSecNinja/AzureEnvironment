@@ -59,7 +59,7 @@ computeResourceGroup = resources.ResourceGroup(
 # Create a network interface and Virtual Machine
 for virtualMachine in env_params_data["virtualMachines"]["windowsServer"]["resources"]:
     print(
-        "Creating virtual machine",
+        "Creating or updating virtual machine",
         virtualMachine["name"]
     )
 
