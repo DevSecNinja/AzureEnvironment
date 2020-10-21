@@ -45,7 +45,10 @@ platformResourceGroup = resources.ResourceGroup(
 )
 
 # Create an Azure Storage Account
-print("Creating storage account in resource group: ", str(platformResourceGroup.name))
+print(
+    "Creating or updating storage account in resource group: ",
+    str(platformResourceGroup.name),
+)
 platformStorageAccount = storage.StorageAccount(
     env_params_data["storageAccounts"]["platform"]["name"],
     account_name=env_params_data["storageAccounts"]["platform"]["name"],
@@ -60,7 +63,7 @@ platformStorageAccount = storage.StorageAccount(
 # Create the platform virtual networks
 for virtualNetwork in env_params_data["virtualNetworks"]["resources"]:
     print(
-        "Creating virtual network",
+        "Creating or updating virtual network",
         virtualNetwork["name"],
         "in resource group",
         str(platformResourceGroup.name),
