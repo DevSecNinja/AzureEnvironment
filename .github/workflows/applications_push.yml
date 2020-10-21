@@ -1,0 +1,30 @@
+name: Pulumi - Applications
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - platform/applications/pulumi/**
+      - platform/generic/json/applications*.json
+      - .github/workflows/applications*.yml
+
+jobs:
+  up:
+    name: Update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: docker://pulumi/actions
+        with:
+          args: up --yes --emoji
+        env:
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          PULUMI_CI: up
+          PULUMI_ROOT: platform/applications/pulumi
