@@ -19,6 +19,3 @@ RUN apt-get update -y \
 	software-properties-common \
 	wget \
 	&& rm -rf /var/lib/apt/lists/*
-
-## Pulumi
-RUN curl -fsSL https://get.pulumi.com/ | bash
