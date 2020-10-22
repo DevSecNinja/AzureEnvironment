@@ -2,5 +2,5 @@ name: infrastructure
 runtime:
   name: python
   options:
-    virtualenv: ../../../.virtualenvs/infrastructure
+    virtualenv: ../../../.env
 description: infrastructure - AzureEnvironment - DevSecNinja

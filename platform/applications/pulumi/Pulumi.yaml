@@ -2,5 +2,5 @@ name: applications
 runtime:
   name: python
   options:
-    virtualenv: ../../../.virtualenvs/applications
+    virtualenv: ../../../.env
 description: applications - AzureEnvironment - DevSecNinja

@@ -2,5 +2,5 @@ name: compute
 runtime:
   name: python
   options:
-    virtualenv: ../../../.virtualenvs/compute
+    virtualenv: ../../../.env
 description: compute - AzureEnvironment - DevSecNinja
