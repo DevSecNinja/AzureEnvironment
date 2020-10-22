@@ -14,7 +14,5 @@
 	"python.linting.pylintEnabled": false,
 	"python.linting.flake8Enabled": true,
 	"python.linting.enabled": true,
-	"python.formatting.provider": "black",
-	"python.venvPath": "${workspaceFolder}/.virtualenvs",
-	"python.pythonPath": ".virtualenvs/applications/bin/python"
+	"python.formatting.provider": "black"
 }
