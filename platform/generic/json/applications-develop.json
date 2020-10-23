@@ -19,10 +19,9 @@
 				"linuxFxVersion": "PYTHON|3.8"
 			},
 			"sourceControlConfig": {
+				"location": "GitHub",
 				"branch": "develop",
-				"isGitHubAction": false,
-				"repoUrl": "https://github.com/DevSecNinja/NamingConventionApi",
-				"isMercurial": false
+				"repo_url": "https://github.com/DevSecNinja/NamingConventionApi"
 			}
 		}
 	],

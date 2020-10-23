@@ -2,6 +2,10 @@ import pulumi
 from pulumi_azure_nextgen.resources import latest as resources
 from pulumi_azure_nextgen.web import latest as web
 
+from azure.common.client_factory import get_client_from_cli_profile
+from azure.mgmt.resource import ResourceManagementClient
+from azure.mgmt.web import WebSiteManagementClient
+
 import json
 from pprint import pprint
 
@@ -46,7 +50,7 @@ applicationsResourceGroup = resources.ResourceGroup(
     location=generic_params_data["regions"]["primaryRegion"]["name"],
 )
 
-# Create a network interface and Virtual Machine
+# Create an app service
 for appService in env_params_data["resources"]:
     print("Creating or updating app service", appService["name"])
 
@@ -69,15 +73,23 @@ for appService in env_params_data["resources"]:
         site_config=appService["appConfig"],
     )
 
-    # appSourceControl = web.WebAppSourceControl(
-    #     appService["sourceControlName"],
-    #     name=appResource.name,
-    #     resource_group_name=applicationsResourceGroup.name,
-    #     branch=appService["sourceControlConfig"]["branch"],
-    #     is_git_hub_action=appService["sourceControlConfig"]["isGitHubAction"],
-    #     repo_url=appService["sourceControlConfig"]["repoUrl"],
-    #     is_mercurial=appService["sourceControlConfig"]["isMercurial"],
-    # )
+    ## TODO: Convert this to a dynamic provider
+    # Get client from Azure CLI profile
+    app_service_client = get_client_from_cli_profile(WebSiteManagementClient)
+
+    # Set source control configuration on web app
+    poller = app_service_client.web_apps.create_or_update_source_control(
+        resource_group_name=env_params_data["resourceGroups"]["applications"]["name"],
+        name=appService["name"],
+        site_source_control=appService["sourceControlConfig"],
+    )
+
+    sc_result = poller.result()
+
+    print(
+        f"Set source control on web app to {sc_result.branch} branch of {sc_result.repo_url}"
+    )
+    ##
 
 
 # Export relevant data to Pulumi output
