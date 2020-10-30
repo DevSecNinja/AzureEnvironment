@@ -69,16 +69,5 @@ for appService in env_params_data["resources"]:
         site_config=appService["appConfig"],
     )
 
-    # appSourceControl = web.WebAppSourceControl(
-    #     appService["sourceControlName"],
-    #     name=appResource.name,
-    #     resource_group_name=applicationsResourceGroup.name,
-    #     branch=appService["sourceControlConfig"]["branch"],
-    #     is_git_hub_action=appService["sourceControlConfig"]["isGitHubAction"],
-    #     repo_url=appService["sourceControlConfig"]["repoUrl"],
-    #     is_mercurial=appService["sourceControlConfig"]["isMercurial"],
-    # )
-
-
 # Export relevant data to Pulumi output
 pulumi.export("applicationsResourceGroupName", applicationsResourceGroup.name)
