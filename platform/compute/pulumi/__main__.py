@@ -3,11 +3,10 @@ from pulumi_azure_nextgen.resources import latest as resources
 from pulumi_azure_nextgen.network import latest as network
 from pulumi_azure_nextgen.compute import latest as compute
 
-import json
 from pprint import pprint
 
+import json
 import os
-
 import random
 import string
 
