@@ -22,10 +22,6 @@ elif stackName == "production":
 else:
     raise AssertionError("We can only serve the develop and production Pulumi stack")
 
-# Print the current directory
-currentDirectory = os.getcwd()
-print("Current directory is:", str(currentDirectory))
-
 # Import generic variables from JSON
 with open("../../generic/json/generic.json") as generic_params_file:
     generic_params_data = json.load(generic_params_file)
