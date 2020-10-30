@@ -1,6 +1,6 @@
 # Azure Environment of DevSecNinja
 
-Welcome! This project contains resources for my Azure subscriptions
+Welcome! This project contains resources for my Azure subscriptions. The project is based on Python and Pulumi.
 
 ## CI / CD Status - develop
 
