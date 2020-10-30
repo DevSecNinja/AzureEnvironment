@@ -78,6 +78,7 @@ for virtualNetwork in env_params_data["virtualNetworks"]["resources"]:
         subnets=virtualNetwork["subnets"],
     )
 
+    # Export relevant outputs for other projects
     outputFormatId = "platformVirtualNetworkId-" + str(virtualNetwork["name"])
     pulumi.export(outputFormatId, platformVirtualNetwork.id)
 
