@@ -42,7 +42,7 @@ applicationsResourceGroup = resources.ResourceGroup(
     location=generic_params_data["regions"]["primaryRegion"]["name"],
 )
 
-# Create a network interface and Virtual Machine
+# Create an App Service Plan and Web App
 for appService in env_params_data["resources"]:
     print("Creating or updating app service", appService["name"])
 
